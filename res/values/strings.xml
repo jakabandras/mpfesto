@@ -7,5 +7,11 @@
     <string name="title_section3">Section 3</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="txt_felad_szoveg">Festésre előkészítve :</string>
+    <string name="txt_szov_kocsi">Kocsi :</string>
+    <string name="txt_szov_mennyiseg">Mennyiség :</string>
+    <string name="txt_szov_ellenorz">Ellenőrzés :</string>
+    <string name="txt_szov_jo">Jó :</string>
+    <string name="txt_szov_selejt">Selejt :</string>
 
 </resources>
