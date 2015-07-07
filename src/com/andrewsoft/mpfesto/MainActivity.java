@@ -146,6 +146,7 @@ public class MainActivity extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
         	int sect = getArguments().getInt(ARG_SECTION_NUMBER);
+        	if (sect < 0) sect = 0;
         	View rootView;
         	if (sect < frags_id.length) 
              rootView = inflater.inflate(frags_id[sect], container, false);

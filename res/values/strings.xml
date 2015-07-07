@@ -13,5 +13,10 @@
     <string name="txt_szov_ellenorz">Ellenőrzés :</string>
     <string name="txt_szov_jo">Jó :</string>
     <string name="txt_szov_selejt">Selejt :</string>
+    <string name="txt_00">00</string>
+    <string name="txt_00000">00000</string>
+    <string name="txt_btn_Termek">Termék szerkesztő</string>
+    <string name="txt_btn_Elokeszit">Előkészítés festésre</string>
+    <string name="txt_btn_Ellenor">Ellenőrzés</string>
 
 </resources>
