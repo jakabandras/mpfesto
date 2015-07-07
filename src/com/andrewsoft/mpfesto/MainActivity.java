@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
      * fragments for each of the sections. We use a
      * {@link FragmentPagerAdapter} derivative, which will keep every
      * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
+     * may be best to switch to a 
      * {@link android.support.v13.app.FragmentStatePagerAdapter}.
      */
     SectionsPagerAdapter mSectionsPagerAdapter;
@@ -122,6 +122,10 @@ public class MainActivity extends Activity {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+        private final int[] frags_id = 	{
+        		R.layout.fragment_main,
+        		R.layout.fragment_elokeszit
+        		};
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -141,7 +145,12 @@ public class MainActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        	int sect = getArguments().getInt(ARG_SECTION_NUMBER);
+        	View rootView;
+        	if (sect < frags_id.length) 
+             rootView = inflater.inflate(frags_id[sect], container, false);
+        	else
+        		rootView = inflater.inflate(frags_id[0], container, false);
             return rootView;
         }
     }
