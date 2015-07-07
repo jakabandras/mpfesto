@@ -2,11 +2,11 @@
 <resources>
 
     <string name="app_name">MPFesto</string>
-    <string name="Főmenű">Section 1</string>
+
     <string name="title_section1">Főmenü</string>
     <string name="title_section2">Összesítés</string>
     <string name="title_section3">Előkészítés részletesen</string>
-    <string name="Előkészítés összesítő">Section 3</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="txt_felad_szoveg">Festésre előkészítve :</string>
