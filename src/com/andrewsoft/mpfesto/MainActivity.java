@@ -1,6 +1,8 @@
 package com.andrewsoft.mpfesto;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -15,11 +17,15 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class MainActivity extends Activity {
+@SuppressWarnings("unused")
+public class MainActivity extends Activity implements ViewPager.OnPageChangeListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -30,6 +36,7 @@ public class MainActivity extends Activity {
      * {@link android.support.v13.app.FragmentStatePagerAdapter}.
      */
     SectionsPagerAdapter mSectionsPagerAdapter;
+    public final Map<String,View> frags = new HashMap<>(); 
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -46,10 +53,12 @@ public class MainActivity extends Activity {
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
+       
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        
 
     }
 
@@ -80,6 +89,7 @@ public class MainActivity extends Activity {
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    	
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -140,20 +150,47 @@ public class MainActivity extends Activity {
         }
 
         public PlaceholderFragment() {
+        	
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
         	int sect = getArguments().getInt(ARG_SECTION_NUMBER);
+        	MainActivity m = (MainActivity)getActivity();
         	if (sect < 0) sect = 0;
         	View rootView;
         	if (sect < frags_id.length) 
              rootView = inflater.inflate(frags_id[sect], container, false);
         	else
         		rootView = inflater.inflate(frags_id[0], container, false);
+        	if (sect == 0) {
+        		m.frags.put("main", rootView);
+        	} else if ( sect == 1 ) {
+        		m.frags.put("elokeszit", rootView);
+        	}
             return rootView;
         }
     }
+
+	@Override
+	public void onPageScrollStateChanged(int arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void onPageScrolled(int arg0, float arg1, int arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void onPageSelected(int arg0) {
+		// TODO Auto-generated method stub
+		Toast.makeText(null, "Page changed!", Toast.LENGTH_SHORT).show();
+	}
 
 }
