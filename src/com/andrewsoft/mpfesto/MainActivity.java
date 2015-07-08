@@ -37,6 +37,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
      */
     SectionsPagerAdapter mSectionsPagerAdapter;
     public final Map<String,View> frags = new HashMap<>(); 
+    public final Map<Integer,Button> btns = new HashMap<>();
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -58,8 +59,29 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        
+//        frags.put("main", (View)findViewById(R.layout.fragment_main));
+        View v = (View)frags.get("main");
+        Button b1 = (Button)v.findViewById(R.id.btn_ScanTeszt);
+        b1.setOnClickListener(new OnClickListener(){
 
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}});
+
+
+    }
+    
+    public void initMainFrame() {
+    	if ( frags.containsKey("main")) {
+    		View m = (View)frags.get("main");
+    		if ( m == null) {
+    			Toast.makeText(null, "Valami gáz van!", Toast.LENGTH_LONG).show();
+    			return;
+    		}
+    	}
+    	
     }
 
 
@@ -93,6 +115,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
+            
         }
 
         @Override
