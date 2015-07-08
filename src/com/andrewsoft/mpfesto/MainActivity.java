@@ -61,6 +61,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         mViewPager.setAdapter(mSectionsPagerAdapter);
 //        frags.put("main", (View)findViewById(R.layout.fragment_main));
         View v = (View)frags.get("main");
+        if ( v != null ) {
         Button b1 = (Button)v.findViewById(R.id.btn_ScanTeszt);
         b1.setOnClickListener(new OnClickListener(){
 
@@ -69,7 +70,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
 				// TODO Auto-generated method stub
 				
 			}});
-
+    }
 
     }
     
