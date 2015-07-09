@@ -20,5 +20,12 @@
     <string name="txt_btn_Ellenor">Ellenőrzés</string>
     <string name="txt_btn_teszt">Scan teszt</string>
     <string name="title_activity_my_scanner">MyScanner</string>
+    <string name="txt_tag">TAG :</string>
+    <string name="txt_gyr">GYR. :</string>
+    <string name="txt_mennyiseg">Mennyiség :</string>
+    <string name="txt_container_save">Tároló mentése</string>
+    <string name="txt_scan">Beolvas</string>
+    <string name="txt_containers_summary">Összesít</string>
+    <string name="txt_print">Nyomtat</string>
 
 </resources>

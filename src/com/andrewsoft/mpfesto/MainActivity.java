@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -25,7 +26,7 @@ import android.widget.Toast;
 
 
 @SuppressWarnings("unused")
-public class MainActivity extends Activity implements ViewPager.OnPageChangeListener {
+public class MainActivity extends Activity  {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -38,6 +39,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
     SectionsPagerAdapter mSectionsPagerAdapter;
     public final Map<String,View> frags = new HashMap<>(); 
     public final Map<Integer,Button> btns = new HashMap<>();
+    private ActionBar mAction;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -59,6 +61,16 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+        	@Override
+        	public void onPageSelected(int position) {
+        		Toast.makeText(getApplicationContext(), "Valami változott!!", Toast.LENGTH_LONG).show();
+        	}
+        });
+        
+        mAction = getActionBar();
+        mAction.setSubtitle(mSectionsPagerAdapter.getPageTitle(0));
+        
 //        frags.put("main", (View)findViewById(R.layout.fragment_main));
         View v = (View)frags.get("main");
         if ( v != null ) {
@@ -129,7 +141,13 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         @Override
         public int getCount() {
             // Show 3 total pages.
+        	
             return 2;
+        }
+        
+        @Override
+        public Object instantiateItem(ViewGroup container, int position ) {
+        	return super.instantiateItem(container, position);
         }
 
         @Override
@@ -190,6 +208,14 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         		rootView = inflater.inflate(frags_id[0], container, false);
         	if (sect == 0) {
         		m.frags.put("main", rootView);
+        		Button btn = (Button) rootView.findViewById(R.id.btn_ScanTeszt);
+        		btn.setOnClickListener(new OnClickListener(){
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Toast.makeText(getActivity().getApplicationContext(),"ScanTeszt", Toast.LENGTH_LONG).show();
+					}});
         	} else if ( sect == 1 ) {
         		m.frags.put("elokeszit", rootView);
         	}
@@ -197,24 +223,5 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         }
     }
 
-	@Override
-	public void onPageScrollStateChanged(int arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void onPageScrolled(int arg0, float arg1, int arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void onPageSelected(int arg0) {
-		// TODO Auto-generated method stub
-		Toast.makeText(null, "Page changed!", Toast.LENGTH_SHORT).show();
-	}
 
 }
