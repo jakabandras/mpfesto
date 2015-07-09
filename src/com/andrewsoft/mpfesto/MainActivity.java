@@ -10,9 +10,11 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import net.sourceforge.zbar.Symbol;
 
 
 @SuppressWarnings("unused")
@@ -36,6 +39,9 @@ public class MainActivity extends Activity  {
      * may be best to switch to a 
      * {@link android.support.v13.app.FragmentStatePagerAdapter}.
      */
+    private static final int ZBAR_SCANNER_REQUEST = 0;
+    private static final int ZBAR_QR_SCANNER_REQUEST = 1;
+
     SectionsPagerAdapter mSectionsPagerAdapter;
     public final Map<String,View> frags = new HashMap<>(); 
     public final Map<Integer,Button> btns = new HashMap<>();
@@ -199,7 +205,7 @@ public class MainActivity extends Activity  {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
         	int sect = getArguments().getInt(ARG_SECTION_NUMBER);
-        	MainActivity m = (MainActivity)getActivity();
+        	final MainActivity m = (MainActivity)getActivity();
         	if (sect < 0) sect = 0;
         	View rootView;
         	if (sect < frags_id.length) 
@@ -215,6 +221,8 @@ public class MainActivity extends Activity  {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						Toast.makeText(getActivity().getApplicationContext(),"ScanTeszt", Toast.LENGTH_LONG).show();
+						Intent intent = new Intent(m, MyScanner.class);
+						startActivityForResult(intent, ZBAR_SCANNER_REQUEST);
 					}});
         	} else if ( sect == 1 ) {
         		m.frags.put("elokeszit", rootView);
@@ -222,6 +230,22 @@ public class MainActivity extends Activity  {
             return rootView;
         }
     }
-
-
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	switch (requestCode) {
+        case ZBAR_SCANNER_REQUEST:
+        case ZBAR_QR_SCANNER_REQUEST:
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this, "Scan Result = " + data.getStringExtra(ZBarConstants.SCAN_RESULT), Toast.LENGTH_SHORT).show();
+            } else if(resultCode == RESULT_CANCELED && data != null) {
+                String error = data.getStringExtra(ZBarConstants.ERROR_INFO);
+                if(!TextUtils.isEmpty(error)) {
+                    Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
+                }
+            }
+            break;
+    		
+    	}
+    }
 }
