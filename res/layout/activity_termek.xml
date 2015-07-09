@@ -1,12 +1,36 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <ListView
+        android:id="@+id/lstTermView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:choiceMode="singleChoice"
+        android:clickable="true"
+        android:fastScrollAlwaysVisible="true"
+        android:fastScrollEnabled="true"
+        android:headerDividersEnabled="true"
+        android:longClickable="true"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" >
 
-</RelativeLayout>
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_btn_new" />
+
+    </LinearLayout>
+
+</LinearLayout>

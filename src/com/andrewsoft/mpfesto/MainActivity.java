@@ -224,6 +224,15 @@ public class MainActivity extends Activity  {
 						Intent intent = new Intent(m, MyScanner.class);
 						startActivityForResult(intent, ZBAR_SCANNER_REQUEST);
 					}});
+        		btn = (Button) rootView.findViewById(R.id.button1);
+        		btn.setOnClickListener(new OnClickListener(){
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Intent intent = new Intent(m, Termek.class);
+						startActivity(intent);
+					}});
         	} else if ( sect == 1 ) {
         		m.frags.put("elokeszit", rootView);
         	}

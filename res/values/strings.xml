@@ -28,5 +28,6 @@
     <string name="txt_containers_summary">Összesít</string>
     <string name="txt_print">Nyomtat</string>
     <string name="title_activity_termek">Termék szerkesztő</string>
+    <string name="txt_btn_new">Új termék rögzítése</string>
 
 </resources>
