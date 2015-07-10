@@ -39,8 +39,8 @@ public class MainActivity extends Activity  {
      * may be best to switch to a 
      * {@link android.support.v13.app.FragmentStatePagerAdapter}.
      */
-    private static final int ZBAR_SCANNER_REQUEST = 0;
-    private static final int ZBAR_QR_SCANNER_REQUEST = 1;
+    public static final int ZBAR_SCANNER_REQUEST = 0;
+    public static final int ZBAR_QR_SCANNER_REQUEST = 1;
 
     SectionsPagerAdapter mSectionsPagerAdapter;
     public final Map<String,View> frags = new HashMap<>(); 
@@ -224,7 +224,7 @@ public class MainActivity extends Activity  {
 						Intent intent = new Intent(m, MyScanner.class);
 						startActivityForResult(intent, ZBAR_SCANNER_REQUEST);
 					}});
-        		btn = (Button) rootView.findViewById(R.id.button1);
+        		btn = (Button) rootView.findViewById(R.id.btn_termedit);
         		btn.setOnClickListener(new OnClickListener(){
 
 					@Override

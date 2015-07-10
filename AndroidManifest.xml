@@ -35,6 +35,10 @@
             android:name=".Termek"
             android:label="@string/title_activity_termek" >
         </activity>
+        <activity
+            android:name=".NewItem"
+            android:label="@string/title_activity_new_item" >
+        </activity>
     </application>
 
 </manifest>

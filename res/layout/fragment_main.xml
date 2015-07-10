@@ -11,19 +11,19 @@
     tools:context="com.andrewsoft.mpfesto.MainActivity$PlaceholderFragment" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn_termedit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txt_btn_Termek" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_festes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txt_btn_Elokeszit" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_meo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txt_btn_Ellenor" />

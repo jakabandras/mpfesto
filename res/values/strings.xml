@@ -29,5 +29,15 @@
     <string name="txt_print">Nyomtat</string>
     <string name="title_activity_termek">Termék szerkesztő</string>
     <string name="txt_btn_new">Új termék rögzítése</string>
+    <string name="title_activity_new_item">Új termék rögzítése</string>
+    <string name="txt_szov_azon">Azonosító :</string>
+    <string name="txt_szov_megnev">Megnevezés :</string>
+    <string name="txt_kocsidb">Kocsi/db :</string>
+    <string name="txt_000">000</string>
+    <string name="txt_tarolodb">Tár./db :</string>
+    <string name="txt_csomdb">Csomagolási db :</string>
+    <string name="txt_szov_azonscan">Beolvasás</string>
+    <string name="txt_btn_save">Adatok mentése</string>
+    <string name="txt_btn_elvet">Adatok elvetése</string>
 
 </resources>
