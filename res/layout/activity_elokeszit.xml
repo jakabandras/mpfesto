@@ -17,7 +17,7 @@
 		android:orientation="horizontal" >
 
 		<TextView
-		    android:id="@+id/textView1"
+		    android:id="@+id/lbMegnev"
 		    android:layout_width="100dp"
 		    android:layout_height="fill_parent"
 		    android:text="@string/txt_tag"
