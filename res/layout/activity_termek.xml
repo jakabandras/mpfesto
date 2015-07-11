@@ -29,6 +29,7 @@
             android:id="@+id/btn_newitem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/add"
             android:text="@string/txt_btn_new" />
 
     </LinearLayout>

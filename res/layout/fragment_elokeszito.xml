@@ -24,7 +24,7 @@
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/editText1"
+            android:id="@+id/edt_elo_gyardat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -47,7 +47,7 @@
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/edt_elo_gyrsz"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -69,7 +69,7 @@
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/edt_elo_tag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -98,7 +98,7 @@
                 android:textStyle="bold|italic" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/edt_elo_azon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/tvMegnevez"
+                android:id="@+id/tv_elo_Megnevez"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -142,7 +142,7 @@
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/edt_elo_menny"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.35"
@@ -161,6 +161,7 @@
             android:id="@+id/btn_scan_elokesz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/scanner"
             android:text="@string/txt_btn_scanner" />
 
         <Button
