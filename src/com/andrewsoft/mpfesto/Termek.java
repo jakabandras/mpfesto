@@ -1,6 +1,7 @@
 package com.andrewsoft.mpfesto;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +12,9 @@ import java.util.Map;
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;
+import org.supercsv.io.CsvMapReader;
 import org.supercsv.io.CsvMapWriter;
+import org.supercsv.io.ICsvMapReader;
 import org.supercsv.io.ICsvMapWriter;
 import org.supercsv.prefs.CsvPreference;
 
@@ -37,7 +40,7 @@ public class Termek extends Activity {
   private final static List<Map<String, Object>> records      = new ArrayList<>();
 
   private Button                                 btnNew;
-  private String                                 dbfName      = "";
+  private static String                          dbfName      = "";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +58,9 @@ public class Termek extends Activity {
     });
 
     ListView lv = (ListView) findViewById(R.id.lstTermView);
-    @SuppressWarnings("unchecked")
-    TermekListAdapter adapter = new TermekListAdapter(this,
-        (Map<String, Object>[]) records.toArray());
-    lv.setAdapter(adapter);
+    // TermekListAdapter adapter = new TermekListAdapter(this,
+    // (Map<String, Object>[]) records.toArray());
+    // lv.setAdapter(adapter);
 
     InitTermek();
   }
@@ -92,6 +94,9 @@ public class Termek extends Activity {
         SaveList(dbfName, records);
 
       }
+      else {
+        readRecords();
+      }
 
     }
     catch (NameNotFoundException e) {
@@ -99,6 +104,36 @@ public class Termek extends Activity {
       e.printStackTrace();
     }
 
+  }
+
+  public static void readRecords() {
+    // TODO Auto-generated method stub
+    records.clear();
+    ICsvMapReader mapReader = null;
+    try {
+      mapReader = new CsvMapReader(new FileReader(dbfName),
+          CsvPreference.STANDARD_PREFERENCE);
+      Map<String, Object> tmpRec;
+      final String[] header = mapReader.getHeader(true);
+      final CellProcessor[] processors = getTermekProcessor();
+      while ((tmpRec = mapReader.read(header, processors)) != null) {
+        records.add(tmpRec);
+      }
+
+    }
+    catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    finally {
+      if (mapReader != null) try {
+        mapReader.close();
+      }
+      catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
   }
 
   public static void AddTermek(Map<String, Object> record_new, String cikksz,
