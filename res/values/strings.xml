@@ -39,5 +39,12 @@
     <string name="txt_szov_azonscan">Beolvasás</string>
     <string name="txt_btn_save">Adatok mentése</string>
     <string name="txt_btn_elvet">Adatok elvetése</string>
+    <string name="title_activity_elokeszito">Előkészítés festésre</string>
+    <string name="txt_szov_gyardatum">Gyártási dátum :</string>
+    <string name="txt_szov_gyrszam">GYR. szám :</string>
+    <string name="txt_szov_tag">Tag :</string>
+    <string name="txt_szov_azonosito">Azonosító :</string>
+    <string name="txt_btn_scanner">Vonalkódok olvasása</string>
+    <string name="txt_btn_elosave">Tároló mentése</string>
 
 </resources>
