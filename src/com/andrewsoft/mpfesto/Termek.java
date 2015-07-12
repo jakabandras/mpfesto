@@ -1,27 +1,17 @@
 package com.andrewsoft.mpfesto;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;
-import org.supercsv.io.CsvMapReader;
-import org.supercsv.io.CsvMapWriter;
-import org.supercsv.io.ICsvMapReader;
-import org.supercsv.io.ICsvMapWriter;
+import org.supercsv.io.*;
 import org.supercsv.prefs.CsvPreference;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.content.pm.*;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.View;
@@ -47,6 +37,8 @@ public class Termek extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_termek);
 
+    InitTermek();
+
     btnNew = (Button) findViewById(R.id.btn_newitem);
     btnNew.setOnClickListener(new OnClickListener() {
 
@@ -58,11 +50,9 @@ public class Termek extends Activity {
     });
 
     ListView lv = (ListView) findViewById(R.id.lstTermView);
-    // TermekListAdapter adapter = new TermekListAdapter(this,
-    // (Map<String, Object>[]) records.toArray());
-    // lv.setAdapter(adapter);
+    TermekListAdapter adapter = new TermekListAdapter(records);
+    lv.setAdapter(adapter);
 
-    InitTermek();
   }
 
   protected void doRogzit() {
@@ -117,7 +107,7 @@ public class Termek extends Activity {
       final String[] header = mapReader.getHeader(true);
       final CellProcessor[] processors = getTermekProcessor();
       while ((tmpRec = mapReader.read(header, processors)) != null) {
-        records.add(tmpRec);
+        if (tmpRec != null) records.add(tmpRec);
       }
 
     }
@@ -150,10 +140,10 @@ public class Termek extends Activity {
 
   public static CellProcessor[] getTermekProcessor() {
     final CellProcessor[] processors = new CellProcessor[] {
-        new NotNull(), // Cikkszám
-        new NotNull(), // Megnevezés
-        new ParseInt(), // Tároló db
-        new ParseInt(), // Kocsi db
+        new NotNull() , // Cikkszám
+        new NotNull() , // Megnevezés
+        new ParseInt() , // Tároló db
+        new ParseInt() , // Kocsi db
         new ParseInt()
     // Csomagolás db
     };
@@ -162,7 +152,7 @@ public class Termek extends Activity {
 
   public void SaveList(String filename, List<Map<String, Object>> recs) {
     final String[] header = {
-        HDR_CIKKSZAM, HDR_MEGNEV, HDR_DEF_CONT, HDR_DEF_KOCS, HDR_CSOM
+        HDR_CIKKSZAM , HDR_MEGNEV , HDR_DEF_CONT , HDR_DEF_KOCS , HDR_CSOM
     };
     ICsvMapWriter mapWriter = null;
     try {

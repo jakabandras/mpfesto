@@ -32,8 +32,10 @@
             <Button
                 android:id="@+id/btnScanAzon"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:drawableLeft="@drawable/scanner"
                 android:text="@string/txt_szov_azonscan" />
+
         </LinearLayout>
 
         <EditText
@@ -67,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textCapCharacters" />
+            android:inputType="textCapWords" />
     </LinearLayout>
 
     <LinearLayout
@@ -127,7 +129,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="@string/txt_000" />
+
     </LinearLayout>
 
     <Button
