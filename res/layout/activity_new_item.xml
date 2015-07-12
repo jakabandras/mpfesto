@@ -86,7 +86,7 @@
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/edt_elo_tag"
+            android:id="@+id/edt_tr_kocsi"
             android:layout_width="64dp"
             android:layout_height="wrap_content"
             android:ems="10"
