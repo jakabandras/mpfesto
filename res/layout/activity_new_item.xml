@@ -34,7 +34,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="48dp"
                 android:drawableLeft="@drawable/scanner"
-                android:text="@string/txt_szov_azonscan" />
+                android:text="@string/txt_szov_azonscan"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -65,7 +66,7 @@
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/edt_tr_megnev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -102,7 +103,7 @@
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/edt_elo_azon"
+            android:id="@+id/edt_tr_cont"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -124,7 +125,7 @@
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/edt_elo_menny"
+            android:id="@+id/edt_tr_csom"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -139,12 +140,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/txt_btn_save" />
+        android:drawableLeft="@drawable/save"
+        android:text="@string/txt_btn_save"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnNullaz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txt_btn_elvet" />
+        android:drawableLeft="@drawable/cancel"
+        android:text="@string/txt_btn_elvet"
+        android:textStyle="bold" />
 
 </LinearLayout>

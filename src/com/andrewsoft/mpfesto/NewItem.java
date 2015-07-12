@@ -1,8 +1,5 @@
 package com.andrewsoft.mpfesto;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +15,15 @@ public class NewItem extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_new_item);
 
+    // Tároló osztály inicializálása
     MyHolder.btnScanner = (Button) findViewById(R.id.btnScanAzon);
     MyHolder.btnSave = (Button) findViewById(R.id.btnSave);
     MyHolder.btnElvet = (Button) findViewById(R.id.btnNullaz);
     MyHolder.cikkszam = (EditText) findViewById(R.id.edt_azon_ut);
+    MyHolder.megnevezes = (EditText) findViewById(R.id.edt_tr_megnev);
+    MyHolder.kocsi = (EditText) findViewById(R.id.edt_tr_kocsi);
+    MyHolder.tarolo = (EditText) findViewById(R.id.edt_tr_cont);
+    MyHolder.csomagolas = (EditText) findViewById(R.id.edt_tr_csom);
 
     MyHolder.btnScanner.setOnClickListener(new OnClickListener() {
 
@@ -56,9 +58,9 @@ public class NewItem extends Activity {
 
   protected void doSave() {
     // TODO Auto-generated method stub
-    final Map<String, Object> record = new HashMap<>();
-    Termek.AddTermek(record, MyHolder.cikkszam.getText().toString(),
-        MyHolder.megnevezes.getText().toString(), 0, 0, 0);
+    Termek.AddTermek(MyHolder.cikkszam.getText().toString(),
+        MyHolder.megnevezes.getText().toString(), MyHolder.getTarolo(),
+        MyHolder.getKocsi(), MyHolder.getCsomagolas());
   }
 
   @Override
@@ -109,9 +111,22 @@ public class NewItem extends Activity {
 
   public static class MyHolder {
 
-    public static EditText cikkszam;
-    public static EditText megnevezes;
-    private static Button  btnScanner , btnSave , btnElvet;
+    static EditText cikkszam;
+    static EditText megnevezes;
+    static EditText kocsi , tarolo , csomagolas;
+    static Button   btnScanner , btnSave , btnElvet;
+
+    static int getKocsi() {
+      return Integer.parseInt(kocsi.getText().toString());
+    }
+
+    static int getTarolo() {
+      return Integer.parseInt(tarolo.getText().toString());
+    }
+
+    static int getCsomagolas() {
+      return Integer.parseInt(csomagolas.getText().toString());
+    }
 
   }
 

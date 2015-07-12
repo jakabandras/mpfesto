@@ -75,10 +75,8 @@ public class Termek extends Activity {
       dbfName = pi.applicationInfo.dataDir + "/Termekek.txt";
       File test = new File(dbfName);
       if (!test.exists()) {
-        AddTermek(new HashMap<String, Object>(), "13-259998Z01-A",
-            "Panel Rear F3X", 60, 288, 60);
-        AddTermek(new HashMap<String, Object>(), "13-25999Z01-D/1",
-            "Panel Front F3X", 60, 234, 60);
+        AddTermek("13-259998Z01-A", "Panel Rear F3X", 60, 288, 60);
+        AddTermek("13-25999Z01-D/1", "Panel Front F3X", 60, 234, 60);
         // More ...
         //
         SaveList(dbfName, records);
@@ -126,10 +124,10 @@ public class Termek extends Activity {
     }
   }
 
-  public static void AddTermek(Map<String, Object> record_new, String cikksz,
-      String megnev, int tarolo, int kocsi, int csomag) {
+  public static void AddTermek(String cikksz, String megnev, int tarolo,
+      int kocsi, int csomag) {
     // TODO Auto-generated method stub
-    final Map<String, Object> record = record_new;
+    final Map<String, Object> record = new HashMap<>();
     record.put(HDR_CIKKSZAM, cikksz);
     record.put(HDR_MEGNEV, megnev);
     record.put(HDR_DEF_CONT, tarolo);
