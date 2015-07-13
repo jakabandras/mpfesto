@@ -39,6 +39,7 @@ public class NewItem extends Activity {
       public void onClick(View v) {
         // TODO Auto-generated method stub
         doSave();
+        MyHolder.clearData();
       }
     });
     MyHolder.btnElvet.setOnClickListener(new OnClickListener() {
@@ -47,6 +48,7 @@ public class NewItem extends Activity {
       public void onClick(View v) {
         // TODO Auto-generated method stub
         doCancel();
+        MyHolder.clearData();
       }
     });
   }
@@ -118,6 +120,12 @@ public class NewItem extends Activity {
 
     static int getKocsi() {
       return Integer.parseInt(kocsi.getText().toString());
+    }
+
+    public static void clearData() {
+      // TODO Auto-generated method stub
+      cikkszam.setText("");
+      megnevezes.setText("");
     }
 
     static int getTarolo() {

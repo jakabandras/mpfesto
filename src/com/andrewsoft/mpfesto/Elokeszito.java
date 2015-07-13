@@ -2,21 +2,12 @@ package com.andrewsoft.mpfesto;
 
 import java.util.Locale;
 
-import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.support.v13.app.FragmentPagerAdapter;
+import android.app.*;
 import android.os.Bundle;
+import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.*;
 
 public class Elokeszito extends Activity {
 
@@ -42,6 +33,26 @@ public class Elokeszito extends Activity {
     // Set up the ViewPager with the sections adapter.
     mViewPager = (ViewPager) findViewById(R.id.pager);
     mViewPager.setAdapter(mSectionsPagerAdapter);
+    mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
+
+      @Override
+      public void onPageScrollStateChanged(int arg0) {
+        // TODO Auto-generated method stub
+
+      }
+
+      @Override
+      public void onPageScrolled(int arg0, float arg1, int arg2) {
+        // TODO Auto-generated method stub
+
+      }
+
+      @Override
+      public void onPageSelected(int arg0) {
+        // TODO Auto-generated method stub
+
+      }
+    });
 
   }
 
@@ -81,7 +92,7 @@ public class Elokeszito extends Activity {
     @Override
     public int getCount() {
       // Show 3 total pages.
-      return 3;
+      return 2;
     }
 
     @Override
@@ -103,6 +114,10 @@ public class Elokeszito extends Activity {
    * A placeholder fragment containing a simple view.
    */
   public static class PlaceholderFragment extends Fragment {
+
+    public final int            myFrags[]          = {
+                                                     R.layout.fragment_elokeszito
+                                                   };
 
     /**
      * The fragment argument representing the section number for this fragment.
@@ -126,10 +141,27 @@ public class Elokeszito extends Activity {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
-      View rootView = inflater.inflate(R.layout.fragment_elokeszito, container,
-          false);
+      int sect = getArguments().getInt(ARG_SECTION_NUMBER, 0);
+      final Activity myActivity = getActivity();
+
+      if (sect < 0) sect = 0;
+      View rootView;
+      if (sect < myFrags.length) rootView = inflater.inflate(myFrags[sect],
+          container, false);
+      else
+        rootView = inflater.inflate(myFrags[0], container, false);
+      switch (myFrags[sect]) {
+      case R.layout.activity_elokeszito:
+        doInitMainFragment(myActivity, rootView);
+        break;
+      }
       return rootView;
     }
+  }
+
+  public static void doInitMainFragment(Activity myActivity, View rootView) {
+    // TODO Auto-generated method stub
+
   }
 
 }

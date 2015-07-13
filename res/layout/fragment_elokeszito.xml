@@ -168,6 +168,7 @@
             android:id="@+id/btn_sv_elokesz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/save"
             android:text="@string/txt_btn_elosave" />
 
     </LinearLayout>

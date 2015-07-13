@@ -194,7 +194,8 @@ public class MainActivity extends Activity {
             // TODO Auto-generated method stub
             Toast.makeText(getActivity().getApplicationContext(), "ScanTeszt",
                 Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(m, MyScanner.class);
+            Intent intent = new Intent(m,
+                com.google.zxing.client.android.CaptureActivity.class);
             startActivityForResult(intent, ZBAR_SCANNER_REQUEST);
           }
         });
