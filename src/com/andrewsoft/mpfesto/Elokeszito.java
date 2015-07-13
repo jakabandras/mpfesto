@@ -7,19 +7,22 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.*;
+import android.widget.*;
 
 public class Elokeszito extends Activity {
 
   /**
    * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the sections. We use a {@link FragmentPagerAdapter} derivative, which will keep every loaded fragment in memory. If this becomes too memory intensive, it may be best to switch to a {@link android.support.v13.app.FragmentStatePagerAdapter}.
    */
-  SectionsPagerAdapter mSectionsPagerAdapter;
-
+  SectionsPagerAdapter   mSectionsPagerAdapter;
+  private ElokeszitesDBF myDbf;
   /**
    * The {@link ViewPager} that will host the section contents.
    */
-  ViewPager            mViewPager;
+  ViewPager              mViewPager;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +153,7 @@ public class Elokeszito extends Activity {
           container, false);
       else
         rootView = inflater.inflate(myFrags[0], container, false);
+      myHolder.initWidgets(rootView, (Elokeszito) this.getActivity());
       switch (myFrags[sect]) {
       case R.layout.activity_elokeszito:
         doInitMainFragment(myActivity, rootView);
@@ -162,6 +166,62 @@ public class Elokeszito extends Activity {
   public static void doInitMainFragment(Activity myActivity, View rootView) {
     // TODO Auto-generated method stub
 
+  }
+
+  private static class myHolder {
+
+    static EditText   gyardat , gyrszam , tag , cikkszam , mennyiseg;
+    static TextView   megnevezes;
+    static Button     scan , ment;
+    static Elokeszito mActivity;
+
+    public static void initWidgets(View rootView, Elokeszito activity) {
+
+      // TODO Auto-generated method stub
+      mActivity = activity;
+      gyardat = (EditText) rootView.findViewById(R.id.edt_elo_gyardat);
+      gyrszam = (EditText) rootView.findViewById(R.id.edt_elo_gyrsz);
+      tag = (EditText) rootView.findViewById(R.id.edt_elo_tag);
+      cikkszam = (EditText) rootView.findViewById(R.id.edt_elo_azon);
+      mennyiseg = (EditText) rootView.findViewById(R.id.edt_elo_menny);
+      megnevezes = (TextView) rootView.findViewById(R.id.tv_elo_Megnevez);
+      scan = (Button) rootView.findViewById(R.id.btn_scan_elokesz);
+      ment = (Button) rootView.findViewById(R.id.btn_sv_elokesz);
+
+      cikkszam.addTextChangedListener(new TextWatcher() {
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count,
+            int after) {
+          // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before,
+            int count) {
+          // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+          // TODO Auto-generated method stub
+          String csz = s.toString();
+          if (findAzon(csz)) {
+
+          }
+          else {
+
+          }
+        }
+      });
+    }
+
+    protected static boolean findAzon(String csz) {
+      // TODO Auto-generated method stub
+      return false;
+    }
   }
 
 }
