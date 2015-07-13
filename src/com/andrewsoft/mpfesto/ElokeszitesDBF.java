@@ -2,6 +2,10 @@ package com.andrewsoft.mpfesto;
 
 import java.util.*;
 
+import org.supercsv.cellprocessor.ift.CellProcessor;
+import org.supercsv.io.ICsvMapReader;
+import org.supercsv.io.ICsvMapWriter;
+
 public class ElokeszitesDBF {
 
   public static final String               HDR_GYARDAT = "Gyártási dátum";
@@ -30,15 +34,36 @@ public class ElokeszitesDBF {
     this.dbfName = dbfName;
   }
 
-  public ElokeszitesDBF( ) {
+  public ElokeszitesDBF( String path ) {
     // TODO Auto-generated constructor stub
+    setDbfName(path + "/" + genDbfName());
+  }
+
+  private String genDbfName() {
+    // TODO Auto-generated method stub
+    Calendar date = Calendar.getInstance();
+    StringBuilder builder = new StringBuilder("EloDbf_");
+    builder.append(date.get(Calendar.YEAR));
+    builder.append(date.get(Calendar.MONTH));
+    builder.append(date.get(Calendar.DAY_OF_MONTH));
+    builder.append(".txt");
+    return builder.toString();
   }
 
   public static void readRecords() {
+    ICsvMapReader mapReader;
 
   }
 
   public static void writeRecords() {
+    ICsvMapWriter mapWriter;
 
+  }
+
+  private static CellProcessor[] getProcessors() {
+    final CellProcessor[] processors = {
+
+    };
+    return processors;
   }
 }
