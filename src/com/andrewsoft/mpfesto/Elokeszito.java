@@ -119,7 +119,8 @@ public class Elokeszito extends Activity {
   public static class PlaceholderFragment extends Fragment {
 
     public final int            myFrags[]          = {
-                                                     R.layout.fragment_elokeszito
+                                                       R.layout.fragment_elokeszito ,
+                                                       R.layout.fragment_ek_reszlet
                                                    };
 
     /**
@@ -149,13 +150,13 @@ public class Elokeszito extends Activity {
 
       if (sect < 0) sect = 0;
       View rootView;
-      if (sect < myFrags.length) rootView = inflater.inflate(myFrags[sect],
+      if (sect < myFrags.length) rootView = inflater.inflate(myFrags[sect - 1],
           container, false);
       else
         rootView = inflater.inflate(myFrags[0], container, false);
       myHolder.initWidgets(rootView, (Elokeszito) this.getActivity());
-      switch (myFrags[sect]) {
-      case R.layout.activity_elokeszito:
+      switch (sect) {
+      case 1:
         doInitMainFragment(myActivity, rootView);
         break;
       }
