@@ -28,7 +28,7 @@ public class Elokeszito extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_elokeszito);
-
+    initActivity();
     // Create the adapter that will return a fragment for each of the three
     // primary sections of the activity.
     mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
@@ -56,6 +56,11 @@ public class Elokeszito extends Activity {
 
       }
     });
+
+  }
+
+  private void initActivity() {
+    // TODO Auto-generated method stub
 
   }
 

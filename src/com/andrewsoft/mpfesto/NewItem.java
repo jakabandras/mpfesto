@@ -10,6 +10,8 @@ import android.widget.*;
 
 public class NewItem extends Activity {
 
+  public static final int SCANNER_REQUEST_CODE = 123;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -107,6 +109,7 @@ public class NewItem extends Activity {
 
   public void startScan() {
     Intent intent = new Intent(this, MyScanner.class);
+
     startActivityForResult(intent, MainActivity.ZBAR_SCANNER_REQUEST);
 
   }

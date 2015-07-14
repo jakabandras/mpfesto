@@ -79,7 +79,7 @@
         android:entries="@array/preferences_front_light_options"
         android:entryValues="@array/preferences_front_light_values"
         android:key="preferences_front_light_mode"
-        android:defaultValue="OFF"
+        android:defaultValue="ON"
         android:title="@string/preferences_front_light_title"
         android:summary="@string/preferences_front_light_summary"/>
     <CheckBoxPreference
@@ -125,7 +125,7 @@
         android:title="@string/preferences_disable_exposure_title"/>
     <CheckBoxPreference
         android:key="preferences_disable_metering"
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:title="@string/preferences_disable_metering_title"/>
     <CheckBoxPreference
         android:key="preferences_disable_barcode_scene_mode"
