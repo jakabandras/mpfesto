@@ -34,16 +34,6 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.google.zxing.client.android.CaptureActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape" >
-        </activity>
-         <activity
-            android:name="com.google.zxing.client.android.PreferenceActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
             android:name=".Termek"
             android:label="@string/title_activity_termek" >
         </activity>

@@ -170,5 +170,16 @@
   <string name="result_wifi">Found WLAN Configuration</string>
   <string name="sbc_name">Google Book Search</string>
   <string name="wifi_changing_network">Requesting connection to network\u2026</string>
+  <string name="txt_term_nev">Termék megnevezése</string>
+  <string name="txt_lbl_kocsiszam">Kocsi sorszáma :</string>
+  <string name="txt_lbl_mennyiseg">Előkészített mennyiség :</string>
+  <string name="txt_lbl_megjegyzes">Megjegyzés :</string>
+  <string name="txt_lbl_elokeszitok">Előkészítők :</string>
+  <string name="txt_btn_sv">Mentés</string>
+  <string name="txt_kk_altip">Altípus :</string>
+  <string name="txt_lbl_kocsi">Kocsi :</string>
+  <string name="txt_0000">0000</string>
+  <string name="txt_lbl_db">db.</string>
+  <string name="txt_btn_nyomtatvanyok">Nyomtatványok</string>
 
 </resources>
