@@ -13,6 +13,8 @@ import org.supercsv.prefs.CsvPreference;
 
 public class KocsiDbf implements MyDbf {
 
+  private static final KocsiDbf     instance  = new KocsiDbf();
+
   private static final String       HDR_AZON  = "Azonosító";
 
   private static final String       HDR_SORSZ = "Kocsi sorszám";
@@ -29,6 +31,34 @@ public class KocsiDbf implements MyDbf {
   private String                    dbfName   = null;
 
   private String                    myKeyField;
+
+  private String                    dbfPath   = null;
+
+  /**
+   * @return the dbfPath
+   */
+  public String getDbfPath() {
+
+    return dbfPath;
+  }
+
+  /**
+   * @param dbfPath
+   *          the dbfPath to set
+   */
+  public void setDbfPath(String dbfPath) {
+
+    this.dbfPath = dbfPath;
+  }
+
+  public static KocsiDbf getInstance() {
+
+    return instance;
+  }
+
+  private KocsiDbf( ) {
+
+  }
 
   public KocsiDbf( String path ) {
 
@@ -69,7 +99,9 @@ public class KocsiDbf implements MyDbf {
   public String genDbfName() {
 
     Calendar cal = Calendar.getInstance();
-    final StringBuilder builder = new StringBuilder("Kocsik_").append(cal.get(Calendar.YEAR)).append(cal.get(Calendar.MONTH) + 1).append(cal.get(Calendar.DAY_OF_MONTH)).append(".txt");
+    final StringBuilder builder = new StringBuilder();
+    if (dbfPath != null) builder.append(getDbfPath()).append("/");
+    builder.append(cal.get(Calendar.YEAR)).append(cal.get(Calendar.MONTH) + 1).append(cal.get(Calendar.DAY_OF_MONTH)).append(".txt");
     return builder.toString();
   }
 

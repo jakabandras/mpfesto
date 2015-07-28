@@ -20,6 +20,8 @@ import org.supercsv.prefs.CsvPreference;
  */
 public class FeladasDbf implements MyDbf {
 
+  private final static FeladasDbf                instance      = new FeladasDbf();
+
   public static final String                     HDR_AZON      = "Azonosító";
 
   public static final String                     HDR_MEGNEV    = "Termék neve";
@@ -56,6 +58,32 @@ public class FeladasDbf implements MyDbf {
   private String                                 dbfName       = null;
 
   private String                                 keyName       = null;
+
+  public static FeladasDbf getInstance() {
+
+    return instance;
+  }
+
+  public static FeladasDbf getInstance(String path) {
+
+    instance.setDbfName(path + "/" + instance.genDbfName());
+    File f = new File(instance.getDbfName());
+    if (f.exists()) {
+      try {
+        instance.readRecords();
+      }
+      catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
+
+    return instance;
+  }
+
+  private FeladasDbf( ) {
+
+  }
 
   /**
    * 

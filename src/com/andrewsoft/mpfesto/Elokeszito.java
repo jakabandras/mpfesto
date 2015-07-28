@@ -27,8 +27,7 @@ public class Elokeszito extends Activity {
 
   private TermekDbf      term;
 
-  @SuppressWarnings( "unused" )
-  private KocsiDbf       kocsik;
+  private final KocsiDbf kocsik  = KocsiDbf.getInstance();
 
   private FeladasDbf     felad;
 
@@ -167,7 +166,15 @@ public class Elokeszito extends Activity {
       pi = pm.getPackageInfo("com.andrewsoft.mpfesto", 0);
       myDbf = new ElokeszitesDBF(pi.applicationInfo.dataDir);
       term = new TermekDbf(pi.applicationInfo.dataDir);
-      kocsik = new KocsiDbf(pi.applicationInfo.dataDir);
+      kocsik.setDbfPath(pi.applicationInfo.dataDir);
+      kocsik.setDbfName(kocsik.genDbfName());
+      try {
+        kocsik.readRecords();
+      }
+      catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
       felad = new FeladasDbf(pi.applicationInfo.dataDir);
     }
     catch (NameNotFoundException e) {
