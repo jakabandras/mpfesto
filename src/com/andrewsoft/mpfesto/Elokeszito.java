@@ -175,7 +175,7 @@ public class Elokeszito extends Activity {
         // TODO Auto-generated catch block
         e.printStackTrace();
       }
-      felad = new FeladasDbf(pi.applicationInfo.dataDir);
+      felad = FeladasDbf.getInstance(pi.applicationInfo.dataDir);
     }
     catch (NameNotFoundException e) {
       e.printStackTrace();

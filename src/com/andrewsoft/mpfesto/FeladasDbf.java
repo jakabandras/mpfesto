@@ -66,18 +66,20 @@ public class FeladasDbf implements MyDbf {
 
   public static FeladasDbf getInstance(String path) {
 
-    instance.setDbfName(path + "/" + instance.genDbfName());
-    File f = new File(instance.getDbfName());
-    if (f.exists()) {
-      try {
-        instance.readRecords();
-      }
-      catch (IOException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+    if (instance.dbfName == null) {
+
+      instance.setDbfName(path + "/" + instance.genDbfName());
+      File f = new File(instance.getDbfName());
+      if (f.exists()) {
+        try {
+          instance.readRecords();
+        }
+        catch (IOException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
       }
     }
-
     return instance;
   }
 
