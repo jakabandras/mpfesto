@@ -1,7 +1,7 @@
 @echo off
-git add src
-git add res
-git add libs
+git add -A src
+git add -A res
+git add -A libs
 git add frissit.bat
 git add .classpath
 git add AndroidManifest.xml

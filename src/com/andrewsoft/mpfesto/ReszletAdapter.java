@@ -60,7 +60,7 @@ public class ReszletAdapter extends BaseAdapter {
 
     ((TextView) result.findViewById(R.id.txt_lbl_sum_termnev)).setText(item.get(OSSZ_MEGNEV));
     ((TextView) result.findViewById(R.id.txt_lbl_sum_azon)).setText(item.get(OSSZ_AZON));
-    ((TextView) result.findViewById(R.id.txt_lbl_sum_kocsidb)).setText(OSSZ_KOCSI);
+    ((TextView) result.findViewById(R.id.txt_lbl_sum_kocsidb)).setText(item.get(OSSZ_KOCSI));
     ((TextView) result.findViewById(R.id.txt_lbl_sum_osszdb)).setText(item.get(OSSZ_MENNY));
 
     return result;

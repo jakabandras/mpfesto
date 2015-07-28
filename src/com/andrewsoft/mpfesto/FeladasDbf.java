@@ -131,7 +131,7 @@ public class FeladasDbf implements MyDbf {
   public String generateKey(Map<String, Object> rec) {
 
     StringBuilder builder = new StringBuilder();
-    builder.append(rec.get(HDR_AZON)).append("**").append(HDR_KOCSISZAM);
+    builder.append(rec.get(HDR_AZON)).append("**").append(rec.get(HDR_KOCSISZAM).toString());
     return builder.toString();
   }
 
@@ -309,6 +309,10 @@ public class FeladasDbf implements MyDbf {
         final Map<String, String> aRec = new HashMap<>();
         aRec.put(ReszletAdapter.OSSZ_AZON, tmp_azon);
         aRec.put(ReszletAdapter.OSSZ_MEGNEV, nevek.get(tmp_azon));
+        aRec.put(ReszletAdapter.OSSZ_KOCSI, kocsik.get(tmp_azon));
+        aRec.put(ReszletAdapter.OSSZ_MENNY, menny.get(tmp_azon));
+
+        tmplist.add(aRec);
 
       }
     }

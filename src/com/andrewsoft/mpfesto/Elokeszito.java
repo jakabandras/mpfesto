@@ -21,24 +21,24 @@ public class Elokeszito extends Activity {
   /**
    * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the sections. We use a {@link FragmentPagerAdapter} derivative, which will keep every loaded fragment in memory. If this becomes too memory intensive, it may be best to switch to a {@link android.support.v13.app.FragmentStatePagerAdapter}.
    */
-  SectionsPagerAdapter   mSectionsPagerAdapter;
+  SectionsPagerAdapter      mSectionsPagerAdapter;
 
-  private ElokeszitesDBF myDbf;
+  private ElokeszitesDBF    myDbf;
 
-  private TermekDbf      term;
+  private TermekDbf         term;
 
-  private final KocsiDbf kocsik  = KocsiDbf.getInstance();
+  private final KocsiDbf    kocsik  = KocsiDbf.getInstance();
 
-  private FeladasDbf     felad;
+  private static FeladasDbf felad;
 
-  private int            actPage = 1;
+  private int               actPage = 1;
 
   /**
    * The {@link ViewPager} that will host the section contents.
    */
-  ViewPager              mViewPager;
+  ViewPager                 mViewPager;
 
-  private PackageManager pm;
+  private PackageManager    pm;
 
   /*
    * (non-Javadoc)
@@ -546,14 +546,18 @@ public class Elokeszito extends Activity {
   @SuppressWarnings( "unused" )
   private static class holderReszlet {
 
-    static ListView   osszesit;
+    static ReszletAdapter rAdapter;
 
-    static Elokeszito mActivity;
+    static ListView       osszesit;
+
+    static Elokeszito     mActivity;
 
     public static void initWidgets(View rootView, Elokeszito activity) {
 
       mActivity = activity;
       osszesit = (ListView) rootView.findViewById(R.id.lv_eloreszlet);
+      rAdapter = new ReszletAdapter(felad);
+      osszesit.setAdapter(rAdapter);
     }
   }
 
