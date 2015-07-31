@@ -241,7 +241,8 @@ public class Elokeszito extends Activity {
     rec.put(FeladasDbf.HDR_AZON, holderFelad.azon.getText().toString());
     rec.put(FeladasDbf.HDR_MEGNEV, holderFelad.termeknev.getText());
     rec.put(FeladasDbf.HDR_MENNY, Integer.valueOf(holderFelad.mennyiseg.getText().toString()));
-    rec.put(FeladasDbf.HDR_KOCSISZAM, Integer.valueOf(holderFelad.kocsiszam.getText().toString()));
+    String ksz = holderFelad.kocsiszam.getText().toString();
+    rec.put(FeladasDbf.HDR_KOCSISZAM, Integer.valueOf(ksz));
     rec.put(FeladasDbf.HDR_MEGJ, holderFelad.megjegyzes.getText().toString());
     rec.put(FeladasDbf.HDR_TIPUS, holderFelad.tipus.getText().toString());
     rec.put(FeladasDbf.HDR_EMBEREK, holderFelad.emberek.getText().toString());
