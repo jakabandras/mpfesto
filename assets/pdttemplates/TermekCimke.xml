@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PDFDocument>
+
+    <Title>
+    </Title>
+
+    <Author>
+    </Author>
+
+    <PageSize Size="A5" />
+
+    <Object
+        height="300"
+        posx="0"
+        posy="0"
+        stroke="3"
+        type="Box"
+        width="200" />
+
+    <Object
+        type="Text"
+        value="Anyám tyúkja" >
+    </Object>
+
+</PDFDocument>

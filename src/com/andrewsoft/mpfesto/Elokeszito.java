@@ -14,6 +14,7 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.*;
 import android.view.*;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.widget.*;
 
 public class Elokeszito extends Activity {
@@ -214,6 +215,28 @@ public class Elokeszito extends Activity {
           final String txtMenny = term.records.get(tmpAzon).get(TermekDbf.HDR_DEF_KOCS).toString();
           holderFelad.mennyiseg.setText(txtMenny);
         }
+      }
+    });
+    holderFelad.azon.setOnFocusChangeListener(new OnFocusChangeListener() {
+
+      @Override
+      public void onFocusChange(View v, boolean hasFocus) {
+
+        // TODO Auto-generated method stub
+        if (!hasFocus) {
+          EditText tv = (EditText) v;
+          String st_azon = tv.getText().toString();
+          if (term.isStored(st_azon)) {
+            @SuppressWarnings( "static-access" )
+            final String megn = term.records.get(st_azon).get(TermekDbf.HDR_MEGNEV).toString();
+            holderFelad.termeknev.setText(megn);
+            @SuppressWarnings( "static-access" )
+            final String txtMenny = term.records.get(st_azon).get(TermekDbf.HDR_DEF_KOCS).toString();
+            holderFelad.mennyiseg.setText(txtMenny);
+
+          }
+        }
+
       }
     });
     holderFelad.save.setOnClickListener(new OnClickListener() {
